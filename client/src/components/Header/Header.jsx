@@ -28,7 +28,7 @@ const Header = () => {
       <div className="flexCenter innerWidth paddings h-container">
         {/* logo */}
         <Link to="/">
-          <img src="./logo.png" alt="logo" width={100} />
+          <img src="./unnamed.png" alt="logo" width={100} />
         </Link>
 
         {/* menu */}
@@ -51,7 +51,7 @@ const Header = () => {
             <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
             {/* login button */}
             {!isAuthenticated ? (
-              <button className="button">
+              <button className="button" onClick={loginWithRedirect}>
                 Login
               </button>
             ) : (

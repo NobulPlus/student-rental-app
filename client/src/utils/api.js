@@ -3,12 +3,12 @@ import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
-  baseURL: "https://full-stack-real-estate-youtube.vercel.app/api",
+  baseURL: "http://localhost:9000/api",
 });
 
 export const getAllProperties = async () => {
   try {
-    const response = await api.get("/residency/allresd", {
+    const response = await api.get("/residency/all-residence", {
       timeout: 10 * 1000,
     });
 
@@ -58,7 +58,7 @@ export const createUser = async (email, token) => {
 export const bookVisit = async (date, propertyId, email, token) => {
   try {
     await api.post(
-      `/user/bookVisit/${propertyId}`,
+      `/user/rentResidence/${propertyId}`,
       {
         email,
         id: propertyId,
@@ -146,7 +146,7 @@ export const getAllBookings = async (email, token) => {
   if(!token) return 
   try {
     const res = await api.post(
-      `/user/allBookings`,
+      `/user/getAllBookings`,
       {
         email,
       },
@@ -170,7 +170,7 @@ export const createResidency = async (data, token) => {
   console.log(data)
   try{
     const res = await api.post(
-      `/residency/create`,
+      `/residency/create-residency`,
       {
         data
       },

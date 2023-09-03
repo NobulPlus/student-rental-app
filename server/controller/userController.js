@@ -20,7 +20,14 @@ export const bookResidence = asyncHandler(async(req, res) => {
     const {email, date} = req.body
     const {id} = req.params
     
-    try{
+        try {
+        // Validate that email, date, and duration are provided
+        if (!email) {
+            return res.status(400).json({ message: 'Email is required' });
+        }
+        if (!date) {
+            return res.status(400).json({ message: 'Date is required' });
+        }
 
         const alreadyBooked = await prisma.user.findUnique({
             where: { email },

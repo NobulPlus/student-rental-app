@@ -12,9 +12,10 @@ model User {
     name String?
     email String @unique
     image String?
+    role String?
     bookedFlats Json[]
     favResidenciesID String[] @db.ObjectId
-    role String?
+    duration Int[]
     ownedResidencies Residency[] @relation("Owner")
 }
 
